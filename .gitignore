@@ -1,0 +1,29 @@
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# macOS / editor artifacts
+.DS_Store
+.idea/
+.vscode/
+
+# Generated media and data outputs from run_*.py scripts
+bezier_classification_*.png
+gb_polar_trajectory*.png
+gb_Pc_mag_vs_t*.png
+gb_theta_vs_t*.png
+gb_inflection_count_distribution*.png
+gb_inflection_pair_distribution*.png
+free_energy*.png
+efield_domain_evolution*.mp4
+polarization_vector_field_evolution.mp4
+gb_history*.npz
+
+# Generic generated artifacts
+*.log
