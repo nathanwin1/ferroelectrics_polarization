@@ -1,10 +1,6 @@
 """
-bezier_classify.py
-------------------
-Bézier curve fitting and unsupervised classification of polarization
+Bézier curve fitting and classification of polarization
 trajectories from GBTracker.export_history().
-
-Dependencies: numpy, scipy, sklearn
 """
 
 import numpy as np
@@ -37,10 +33,6 @@ def bezier_curve(control_pts: np.ndarray, t_vals: np.ndarray) -> np.ndarray:
 def history_cell_time_arrays(history: dict) -> tuple[np.ndarray, np.ndarray]:
     """
     Return mag_crys and angle_crys_rad as (n_cells, n_steps).
-
-    The source tracker stores one row per recorded timestep in this project
-    ((n_steps, n_cells)), while older notes may describe the transposed layout.
-    Use cell_indices as the authoritative tracked-cell count.
     """
     mag = np.asarray(history["mag_crys"])
     ang = np.asarray(history["angle_crys_rad"])
@@ -79,7 +71,6 @@ def fit_bezier(xy_points: np.ndarray, degree: int = 3) -> np.ndarray:
     Interior control points solved via least squares.
 
     Returns control_points of shape (degree+1, 2).
-    Raises ValueError if N < degree + 2.
     """
     N = len(xy_points)
     n_ctrl = degree + 1
@@ -119,8 +110,6 @@ def fit_bezier(xy_points: np.ndarray, degree: int = 3) -> np.ndarray:
 def extract_bezier_features(ctrl_pts: np.ndarray) -> dict:
     """
     Extract classification features from Bézier control points.
-
-    Works for any degree >= 1, but designed for cubic (degree=3).
 
     Features:
       displacement   — ||P_n - P_0||, net start-to-end distance
@@ -172,9 +161,6 @@ def extract_bezier_features(ctrl_pts: np.ndarray) -> dict:
 def count_inflections_1d(y: np.ndarray, smooth_window: int = 1) -> int:
     """
     Count sign changes in the second derivative of a 1D trajectory.
-
-    This mirrors the tracker's discrete inflection proxy but keeps Bézier
-    classification self-contained.
     """
     y = np.asarray(y, dtype=float).ravel()
     if y.size < 3:
