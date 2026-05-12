@@ -1,6 +1,6 @@
-# Ferroelectrics Project
+# Ferroelectrics Polarization Grain Misorientation
 
-Simulation and post-processing utilities for ferroelectric domain and grain-boundary (GB) polarization behavior, including trajectory analysis and Bezier-based trajectory classification.
+Simulating grain misorientation in ferroelectric domain and grain-boundary (GB) polarization behavior, including trajectory analysis and Bezier-based trajectory classification.
 
 ## Repository Structure
 
