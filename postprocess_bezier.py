@@ -1,6 +1,4 @@
 """
-postprocess_bezier.py
----------------------
 Visualization for Bézier-classified polarization trajectories.
 Designed to slot alongside existing postprocess module.
 """
